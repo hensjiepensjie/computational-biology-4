@@ -1,0 +1,23 @@
+VERSIE: 3
+
+k = 1 # Boltzmann constant
+n_cell_id = 100 # Number of cells?
+n_types = 3 # Number of cell types
+N = 50 # Size of grid without surrounding medium
+n_steps = 100000 # Number of iterations
+J = np.zeros((n_types + 1, n_types + 1)) # Cell grid?
+lamb = 1 # something in Hvol, just a constant maybe
+At = [0,20,20] # List where each index is the equilibrium area of a cell type
+
+J[0,0] = 0
+J[0,1] = 8
+J[0,2] = 8
+J[1,0] = 8
+J[1,1] = 2
+J[1,2] = 5
+J[2,0] = J[0,2]
+J[2,1] = J[1,2]
+J[2,2] = J[1,1]
+
+start_temp = 400
+temp_decay = .8
